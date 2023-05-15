@@ -67,9 +67,38 @@ mkdir -p CmakeWpilib/build && \
     make && \
     sudo make install
 cd ${ISAAC_ROS_WS}/src
+sudo apt install -y \
+    build-essential \
+    cmake \
+    git \
+    libbullet-dev \
+    python3-colcon-common-extensions \
+    python3-flake8 \
+    python3-pip \
+    python3-pytest-cov \
+    python3-rosdep \
+    python3-setuptools \
+    python3-vcstool \
+    wget
+python3 -m pip install -U \
+    argcomplete \
+    flake8-blind-except \
+    flake8-builtins \
+    flake8-class-newline \
+    flake8-comprehensions \
+    flake8-deprecated \
+    flake8-docstrings \
+    flake8-import-order \
+    flake8-quotes \
+    pytest-repeat \
+    pytest-rerunfailures \
+    pytest
+git clone https://github.com/ros-planning/moveit2.git -b $ROS_DISTRO
 # TODO: git clone ROSNTClient
 cd ~/workspaces/isaac_ros-dev/src/isaac_ros_common && \
     ./scripts/run_dev.sh
+for repo in moveit2/moveit2.repos $(f="moveit2/moveit2_$ROS_DISTRO.repos"; test -r $f && echo $f); do vcs import < "$repo"; done
+    rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
 cd /workspaces/isaac_ros-dev && \
     colcon build --symlink-install && \
     source install/setup.bash
