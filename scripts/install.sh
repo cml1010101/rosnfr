@@ -12,6 +12,7 @@ else
     exit 1
 fi
 set -e
+cd ${HOME}
 if [distro == 0]; then
     sudo apt update
     sudo apt install -y nvidia-jetpack
@@ -19,7 +20,7 @@ if [distro == 0]; then
     sudo usermod -aG docker $USER
     newgrp docker
     sudo apt install -y curl
-    # TODO: curl arm64-daemon.json
+    curl https://raw.githubusercontent.com/cml1010101/rosnfr/main/resources/arm64-daemon.json > arm64-daemon.json
     sudo rm -rf /etc/docker/daemon.json
     sudo mv arm64-daemon.json /etc/docker/daemon.json
     sudo systemctl daemon-reload && sudo systemctl restart docker
@@ -33,7 +34,7 @@ elif [distro == 1]: then
     sudo apt update
     sudo apt install -y nvidia-container-runtime
     sudo apt install -y nvidia-docker2
-    # TODO: curl x86_64-daemon.json
+    curl https://raw.githubusercontent.com/cml1010101/rosnfr/main/resources/x86_64-daemon.json > x86_64-daemon.json
     sudo rm -rf /etc/docker/daemon.json
     sudo mv x86_64-daemon.json /etc/docker/daemon.json
     sudo pkill -SIGHUP dockerd
