@@ -56,17 +56,17 @@ cd ${ISAAC_ROS_WS}/src
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference
 git clone https://github.com/IntelRealSense/realsense-ros.git -b 4.51.1
+git clone https://github.com/ros-planning/navigation2.git --branch humble
 cd ${ISAAC_ROS_WS}/src/isaac_ros_common/scripts && \
     touch .isaac_ros_common-config && \
     echo CONFIG_IMAGE_KEY=ros2_humble.realsense > .isaac_ros_common-config
 cd ${ISAAC_ROS_WS}/src
 git clone --recursive https://github.com/ThadHouse/CmakeWpilib.git
-mkdir -p CmakeWpilib/build && \
-    cd CmakeWpilib/build && \
-    cmake .. && \
-    make && \
-    sudo make install
 cd ${ISAAC_ROS_WS}/src
+git clone https://github.com/ros-planning/moveit2.git -b $ROS_DISTRO
+# TODO: git clone ROSNTClient
+cd ~/workspaces/isaac_ros-dev/src/isaac_ros_common && \
+    ./scripts/run_dev.sh
 sudo apt install -y \
     build-essential \
     cmake \
@@ -93,15 +93,19 @@ python3 -m pip install -U \
     pytest-repeat \
     pytest-rerunfailures \
     pytest
-git clone https://github.com/ros-planning/moveit2.git -b $ROS_DISTRO
-# TODO: git clone ROSNTClient
-cd ~/workspaces/isaac_ros-dev/src/isaac_ros_common && \
-    ./scripts/run_dev.sh
+sudo apt install -y ros-humble-navigation2
 for repo in moveit2/moveit2.repos $(f="moveit2/moveit2_$ROS_DISTRO.repos"; test -r $f && echo $f); do vcs import < "$repo"; done
     rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
+rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys="console_bridge fastcdr fastrtps libopensplice67 libopensplice69 libopensplice69-dev libopensplice-cpp-dev python3-lark-parser python3-lark python3-babeltrace python3-psutil python3-lark python3-babeltrace python3-psutil python3-netifaces python3-rclpy python3-rosbag2 python3-rosbag2-storage python3-rosbag2-storage-default-plugins python3-ament-pylint"
+mkdir -p CmakeWpilib/build && \
+    cd CmakeWpilib/build && \
+    cmake .. && \
+    make && \
+    sudo make install
 cd /workspaces/isaac_ros-dev && \
     colcon build --symlink-install && \
     source install/setup.bash
+source /workspaces/install/setup.bash
 exit
 cd ${HOME}
 exit 0

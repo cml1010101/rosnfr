@@ -1,0 +1,7 @@
+[Unit]
+Description=This is the nvidia isaac ros apriltag service
+[Service]
+Type=simple
+ExecStart=${HOME}/scripts/run_apriltag.sh
+User=root
+[Install]
