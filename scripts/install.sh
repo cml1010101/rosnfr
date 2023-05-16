@@ -1,4 +1,5 @@
 #!/bin/bash
+ROS_DISTRO=humble
 if [$(uname -p) == x86_64]; then
     echo "Downloading ISAAC ROS for an x86-64 system"
     echo "Assuming nvidia is present"
@@ -46,8 +47,6 @@ mkdir -p ~/workspaces/isaac_ros-dev/src
 echo "export ISAAC_ROS_WS=${HOME}/workspaces/isaac_ros-dev/" >> ~/.bashrc
 source ~/.bashrc
 cd ~/workspaces/isaac_ros-dev/src
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline
 git clone --recurse-submodules https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox && \
