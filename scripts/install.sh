@@ -44,25 +44,8 @@ fi
 sudo apt install -y git-lfs
 git lfs install --skip-repo
 mkdir -p ~/workspaces/isaac_ros-dev/src
-echo "export ISAAC_ROS_WS=${HOME}/workspaces/isaac_ros-dev/" >> ~/.bashrc
+echo "export ISAAC_ROS_WS=$(pwd)" >> ~/.bashrc
 source ~/.bashrc
-cd ~/workspaces/isaac_ros-dev/src
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline
-git clone --recurse-submodules https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox && \
-    cd isaac_ros_nvblox && git lfs pull
-cd ${ISAAC_ROS_WS}/src
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference
-git clone https://github.com/IntelRealSense/realsense-ros.git -b 4.51.1
-git clone https://github.com/ros-planning/navigation2.git --branch humble
-cd ${ISAAC_ROS_WS}/src/isaac_ros_common/scripts && \
-    touch .isaac_ros_common-config && \
-    echo CONFIG_IMAGE_KEY=ros2_humble.realsense > .isaac_ros_common-config
-cd ${ISAAC_ROS_WS}/src
-git clone --recursive https://github.com/ThadHouse/CmakeWpilib.git
-cd ${ISAAC_ROS_WS}/src
-git clone https://github.com/ros-planning/moveit2.git -b $ROS_DISTRO
 # TODO: git clone ROSNTClient
 cd ~/workspaces/isaac_ros-dev/src/isaac_ros_common && \
     ./scripts/run_dev.sh
