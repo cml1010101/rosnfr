@@ -26,3 +26,10 @@
 	path = src/navigation2
 	url = https://github.com/ros-planning/navigation2
 	branch = humble
+[submodule "src/CmakeWpilib"]
+	path = src/CmakeWpilib
+	url = https://github.com/ThadHouse/CmakeWpilib
+[submodule "src/moveit2"]
+	path = src/moveit2
+	url = https://github.com/ros-planning/moveit2
+	branch = humble
