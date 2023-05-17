@@ -7,3 +7,6 @@
 [submodule "src/isaac_ros_apriltag"]
 	path = src/isaac_ros_apriltag
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag
+[submodule "src/isaac_ros_image_pipeline"]
+	path = src/isaac_ros_image_pipeline
+	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline
