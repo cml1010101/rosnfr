@@ -19,3 +19,6 @@
 [submodule "src/isaac_ros_dnn_inference"]
 	path = src/isaac_ros_dnn_inference
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference
+[submodule "src/realsense-ros"]
+	path = src/realsense-ros
+	url = https://github.com/IntelRealSense/realsense-ros
