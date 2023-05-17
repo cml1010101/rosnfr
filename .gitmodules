@@ -16,3 +16,6 @@
 [submodule "src/isaac_ros_pose_estimation"]
 	path = src/isaac_ros_pose_estimation
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation
+[submodule "src/isaac_ros_dnn_inference"]
+	path = src/isaac_ros_dnn_inference
+	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference
