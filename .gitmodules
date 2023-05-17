@@ -22,3 +22,7 @@
 [submodule "src/realsense-ros"]
 	path = src/realsense-ros
 	url = https://github.com/IntelRealSense/realsense-ros
+[submodule "src/navigation2"]
+	path = src/navigation2
+	url = https://github.com/ros-planning/navigation2
+	branch = humble
