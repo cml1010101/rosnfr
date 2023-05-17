@@ -4,3 +4,6 @@
 [submodule "src/isaac_ros_nitros"]
 	path = src/isaac_ros_nitros
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros
+[submodule "src/isaac_ros_apriltag"]
+	path = src/isaac_ros_apriltag
+	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag
