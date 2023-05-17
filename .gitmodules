@@ -13,3 +13,6 @@
 [submodule "src/isaac_ros_nvblox"]
 	path = src/isaac_ros_nvblox
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox
+[submodule "src/isaac_ros_pose_estimation"]
+	path = src/isaac_ros_pose_estimation
+	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation
