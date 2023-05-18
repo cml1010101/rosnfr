@@ -1,53 +1,10 @@
 #!/bin/bash
-ROS_DISTRO=humble
-if [$(uname -p) == x86_64]; then
-    echo "Downloading ISAAC ROS for an x86-64 system"
-    echo "Assuming nvidia is present"
-    distro=0
-elif [$($(uname -p) == aarch64) || $(uname -p == arm64)]; then
-    echo "Downloading ISAAC ROS for an arm64 system"
-    echo "Assuming nvidia is present"
-    distro=1
-else
-    echo "Unidentified system. Halt."
-    exit 1
-fi
-set -e
-cd ${HOME}
-if [distro == 0]; then
-    sudo apt update
-    sudo apt install -y nvidia-jetpack
-    sudo systemctl restart docker
-    sudo usermod -aG docker $USER
-    newgrp docker
-    sudo apt install -y curl
-    curl https://raw.githubusercontent.com/cml1010101/rosnfr/main/resources/arm64-daemon.json > arm64-daemon.json
-    sudo rm -rf /etc/docker/daemon.json
-    sudo mv arm64-daemon.json /etc/docker/daemon.json
-    sudo systemctl daemon-reload && sudo systemctl restart docker
-elif [distro == 1]: then
-    sudo apt update
-    sudo apt install -y curl
-    curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
-        sudo apt-key add - distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-    curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list | \
-        sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
-    sudo apt update
-    sudo apt install -y nvidia-container-runtime
-    sudo apt install -y nvidia-docker2
-    curl https://raw.githubusercontent.com/cml1010101/rosnfr/main/resources/x86_64-daemon.json > x86_64-daemon.json
-    sudo rm -rf /etc/docker/daemon.json
-    sudo mv x86_64-daemon.json /etc/docker/daemon.json
-    sudo pkill -SIGHUP dockerd
-    sudo systemctl daemon-reload && sudo systemctl restart docker
-fi
 sudo apt install -y git-lfs
 git lfs install --skip-repo
-mkdir -p ~/workspaces/isaac_ros-dev/src
 echo "export ISAAC_ROS_WS=$(pwd)" >> ~/.bashrc
 source ~/.bashrc
-# TODO: git clone ROSNTClient
-cd ~/workspaces/isaac_ros-dev/src/isaac_ros_common && \
+docker login nvcr.io $oauthtoken
+cd src/isaac_ros_common && \
     ./scripts/run_dev.sh
 sudo apt install -y \
     build-essential \
