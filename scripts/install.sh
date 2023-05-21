@@ -7,7 +7,7 @@ docker login nvcr.io $oauthtoken
 touch src/isaac_ros_common/scripts/.isaac_ros_common-config
 echo "CONFIG_IMAGE_KEY=ros2_humble.realsense" >> src/isaac_ros_common/scripts.isaac_ros_common-config
 cd src/isaac_ros_common && \
-    ./scripts/run_dev.sh .
+    ./scripts/run_dev.sh . &
 sudo apt install -y \
     build-essential \
     cmake \
