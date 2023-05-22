@@ -39,3 +39,6 @@
 [submodule "src/eigen_stl_containers"]
 	path = src/eigen_stl_containers
 	url = https://github.com/ros/eigen_stl_containers.git
+[submodule "src/catkin_tools"]
+	path = src/catkin_tools
+	url = https://github.com/catkin/catkin_tools.git
