@@ -33,3 +33,9 @@
 	path = src/moveit2
 	url = https://github.com/ros-planning/moveit2
 	branch = humble
+[submodule "src/octomap"]
+	path = src/octomap
+	url = https://github.com/OctoMap/octomap.git
+[submodule "src/eigen_stl_containers"]
+	path = src/eigen_stl_containers
+	url = https://github.com/ros/eigen_stl_containers.git
