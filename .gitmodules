@@ -22,23 +22,3 @@
 [submodule "src/realsense-ros"]
 	path = src/realsense-ros
 	url = https://github.com/IntelRealSense/realsense-ros
-[submodule "src/navigation2"]
-	path = src/navigation2
-	url = https://github.com/ros-planning/navigation2
-	branch = humble
-[submodule "src/CmakeWpilib"]
-	path = src/CmakeWpilib
-	url = https://github.com/ThadHouse/CmakeWpilib
-[submodule "src/moveit2"]
-	path = src/moveit2
-	url = https://github.com/ros-planning/moveit2
-	branch = humble
-[submodule "src/octomap"]
-	path = src/octomap
-	url = https://github.com/OctoMap/octomap.git
-[submodule "src/eigen_stl_containers"]
-	path = src/eigen_stl_containers
-	url = https://github.com/ros/eigen_stl_containers.git
-[submodule "src/catkin_tools"]
-	path = src/catkin_tools
-	url = https://github.com/catkin/catkin_tools.git
