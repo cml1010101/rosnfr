@@ -10,15 +10,6 @@
 [submodule "src/isaac_ros_image_pipeline"]
 	path = src/isaac_ros_image_pipeline
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline
-[submodule "src/isaac_ros_nvblox"]
-	path = src/isaac_ros_nvblox
-	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox
-[submodule "src/isaac_ros_pose_estimation"]
-	path = src/isaac_ros_pose_estimation
-	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_pose_estimation
-[submodule "src/isaac_ros_dnn_inference"]
-	path = src/isaac_ros_dnn_inference
-	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference
 [submodule "src/realsense-ros"]
 	path = src/realsense-ros
 	url = https://github.com/IntelRealSense/realsense-ros
