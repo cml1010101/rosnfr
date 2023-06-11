@@ -55,12 +55,11 @@ docker run -it --rm \
     -v $ISAAC_ROS_DEV_DIR:/workspaces/isaac_ros-dev \
     -v /dev/*:/dev/* \
     -v /etc/localtime:/etc/localtime:ro \
-    -v $ISAAC_ROS_DEV_DIR/scripts:/usr/local/bin/scripts \
     --name "$CONTAINER_NAME" \
     --runtime nvidia \
     --user="admin" \
     --entrypoint /usr/local/bin/scripts/workspace-entrypoint.sh \
     --workdir /workspaces/isaac_ros-dev \
     $@ \
-    cml1010101/rosnfr:v5 \
+    cml1010101/rosnfr:v8 \
     /bin/bash
