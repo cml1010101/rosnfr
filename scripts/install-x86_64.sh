@@ -1,3 +1,4 @@
+#!/bin/bash
 ROS_DISTRO=humble
 distro=0
 export DIR=$(pwd)

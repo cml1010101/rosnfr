@@ -49,7 +49,7 @@ if [[ -z "$ISAAC_ROS_DEV_DIR" ]]; then
 else
     shift 1
 fi
-docker run -it --rm \
+docker run -d --rm \
     --privileged \
     --network host \
     ${DOCKER_ARGS[@]} \
@@ -64,3 +64,4 @@ docker run -it --rm \
     $@ \
     cml1010101/rosnfr:v8 \
     /bin/bash
+docker exec -d isaac_ros_dev-aarch64-container source install/setup.bash && ros2 launch nfr_ros run_pinky.launch.py

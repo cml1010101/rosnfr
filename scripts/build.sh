@@ -6,9 +6,6 @@ source ~/.bashrc
 git submodule update --init --recursive
 docker login nvcr.io $oauthtoken
 echo $ISAAC_ROS_WS
-docker pull cml1010101/rosnfr:v8
-sudo cp services/rosnfr.service /etc/systemd/system/
-sudo mkdir -p /opt/rosnfr
-sudo cp scripts/launch.sh /opt/rosnfr/
-sudo systemctl enable rosnfr.service
+cd src/isaac_ros_common && \
+    ./scripts/run_dev.sh $ISAAC_ROS_WS
 exit 0
