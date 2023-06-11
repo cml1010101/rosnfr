@@ -33,8 +33,8 @@ def generate_launch_description():
             'enable_infra2': False,
             'enable_depth': False,
         }],
-        remappings=[('/color/image_raw', '/image'),
-                    ('/color/camera_info', '/camera_info')]
+        remappings=[('color/image_raw', 'image'),
+                    ('color/camera_info', 'camera_info')]
     )
     apriltag_container = ComposableNodeContainer(
         package='rclcpp_components',
