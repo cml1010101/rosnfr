@@ -17,6 +17,19 @@ def generate_launch_description():
                 )
             ]
         ),
+        # GroupAction(
+        #     actions = [
+        #         IncludeLaunchDescription(
+        #             PythonLaunchDescriptionSource([
+        #                 os.path.join(get_package_share_directory('nav2_bringup'), 'launch'),
+        #                 '/navigation_launch.py'
+        #             ]),
+        #             launch_arguments=[
+        #                 ('params_file', os.path.join(get_package_share_directory('nfr_ros'), 'launch', 'nav2_params.yaml'))
+        #             ]
+        #         )
+        #     ]
+        # ),
         Node(
             package='nfr_ros',
             name='ntclient',
